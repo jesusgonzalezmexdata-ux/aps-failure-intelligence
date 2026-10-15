@@ -3,8 +3,8 @@ message: "If you use this software or its evidence, please cite it as below."
 title: "APS failure intelligence: cost-sensitive workshop triage on the Scania APS data"
 type: software
 authors:
-  - family-names: "Gonzalez"
-    given-names: "Jesus R. L."
+  - family-names: "González"
+    given-names: "Jesús R. L."
 license: Apache-2.0
 version: "1.0.0"
 date-released: "2026-10-15"

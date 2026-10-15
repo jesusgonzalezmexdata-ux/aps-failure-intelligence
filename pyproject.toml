@@ -9,7 +9,7 @@ description = "Cost-sensitive failure intelligence for the Scania APS dataset"
 requires-python = ">=3.13,<3.14"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
-authors = [{ name = "Jesus R. L. Gonzalez" }]
+authors = [{ name = "Jesús R. L. González" }]
 readme = "README.md"
 dynamic = ["dependencies"]
 
