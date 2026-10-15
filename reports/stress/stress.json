@@ -1,0 +1,215 @@
+{
+  "note": "Descriptive only: frozen model and threshold, consumed test set, seed 42. monitor_status compares each scenario with the clean test set (as last month's batch); status_vs_training compares with the training reference.",
+  "scenarios": [
+    {
+      "scenario": "Baseline (clean test set)",
+      "real_world_cause": "None",
+      "trucks": 16000,
+      "failures": 375,
+      "cost_per_1000": 721.2,
+      "recall": 0.9573,
+      "checks_per_1000": 44.6,
+      "missed": 16,
+      "false_alarms": 354,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "workshop_load"
+      ],
+      "monitor_status": "OK",
+      "signals": [],
+      "psi_major": [],
+      "absent_or_empty": [],
+      "cost_change_vs_baseline": 0.0
+    },
+    {
+      "scenario": "Sensor dropout: histogram family ay missing for 30 % of trucks",
+      "real_world_cause": "Readings stop arriving for one sensor group",
+      "trucks": 16000,
+      "failures": 375,
+      "cost_per_1000": 691.2,
+      "recall": 0.9627,
+      "checks_per_1000": 47.9,
+      "missed": 14,
+      "false_alarms": 406,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "workshop_load",
+        "drift",
+        "missing_jump"
+      ],
+      "monitor_status": "ALERT",
+      "signals": [
+        "drift",
+        "missing_jump"
+      ],
+      "psi_major": [
+        "ay_006"
+      ],
+      "absent_or_empty": [],
+      "cost_change_vs_baseline": -0.042
+    },
+    {
+      "scenario": "Telematics outage: 10 % of trucks send only one reading",
+      "real_world_cause": "Truck records arrive almost empty",
+      "trucks": 16000,
+      "failures": 375,
+      "cost_per_1000": 813.1,
+      "recall": 0.96,
+      "checks_per_1000": 56.9,
+      "missed": 15,
+      "false_alarms": 551,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "workshop_load",
+        "drift"
+      ],
+      "monitor_status": "ALERT",
+      "signals": [
+        "workshop_load",
+        "drift"
+      ],
+      "psi_major": [
+        "ci_000",
+        "ck_000"
+      ],
+      "absent_or_empty": [],
+      "cost_change_vs_baseline": 0.127
+    },
+    {
+      "scenario": "Unit change: cb_000 reported \u00d71,000",
+      "real_world_cause": "Firmware or ETL changes the unit of one counter",
+      "trucks": 16000,
+      "failures": 375,
+      "cost_per_1000": 813.8,
+      "recall": 0.9467,
+      "checks_per_1000": 41.1,
+      "missed": 20,
+      "false_alarms": 302,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "drift"
+      ],
+      "monitor_status": "ALERT",
+      "signals": [
+        "drift"
+      ],
+      "psi_major": [
+        "cb_000"
+      ],
+      "absent_or_empty": [],
+      "cost_change_vs_baseline": 0.128
+    },
+    {
+      "scenario": "Counter reset: aa_000 = 0 for 20 % of trucks",
+      "real_world_cause": "Control unit replaced or counter reset",
+      "trucks": 16000,
+      "failures": 375,
+      "cost_per_1000": 742.5,
+      "recall": 0.9547,
+      "checks_per_1000": 43.5,
+      "missed": 17,
+      "false_alarms": 338,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "workshop_load"
+      ],
+      "monitor_status": "WARN",
+      "signals": [],
+      "psi_major": [],
+      "absent_or_empty": [],
+      "cost_change_vs_baseline": 0.03
+    },
+    {
+      "scenario": "Schema drift: ci_000 no longer delivered",
+      "real_world_cause": "A column is renamed or dropped upstream",
+      "trucks": 16000,
+      "failures": 375,
+      "cost_per_1000": 717.5,
+      "recall": 0.9627,
+      "checks_per_1000": 50.6,
+      "missed": 14,
+      "false_alarms": 448,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "workshop_load",
+        "drift",
+        "schema"
+      ],
+      "monitor_status": "ALERT",
+      "signals": [
+        "workshop_load",
+        "drift",
+        "schema"
+      ],
+      "psi_major": [
+        "ci_000"
+      ],
+      "absent_or_empty": [
+        "ci_000"
+      ],
+      "cost_change_vs_baseline": -0.005
+    },
+    {
+      "scenario": "Duplicates: 2 % of trucks sent twice",
+      "real_world_cause": "Same truck exported twice",
+      "trucks": 16320,
+      "failures": 384,
+      "cost_per_1000": 710.2,
+      "recall": 0.9583,
+      "checks_per_1000": 44.5,
+      "missed": 16,
+      "false_alarms": 359,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "workshop_load"
+      ],
+      "monitor_status": "OK",
+      "signals": [],
+      "psi_major": [],
+      "absent_or_empty": [],
+      "cost_change_vs_baseline": -0.015
+    },
+    {
+      "scenario": "Label noise: 10 % of failures recorded as healthy",
+      "real_world_cause": "Repairs logged late or under another code",
+      "trucks": 16000,
+      "failures": 337,
+      "cost_per_1000": 681.2,
+      "recall": 0.9585,
+      "checks_per_1000": 44.6,
+      "missed": 14,
+      "false_alarms": 390,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "workshop_load"
+      ],
+      "monitor_status": "OK",
+      "signals": [],
+      "psi_major": [],
+      "absent_or_empty": [],
+      "cost_change_vs_baseline": -0.055
+    },
+    {
+      "scenario": "Prevalence shift: failure rate 2.3 % \u2192 4 %",
+      "real_world_cause": "Older or harder-used fleet",
+      "trucks": 16276,
+      "failures": 651,
+      "cost_per_1000": 1200.5,
+      "recall": 0.9508,
+      "checks_per_1000": 59.8,
+      "missed": 32,
+      "false_alarms": 354,
+      "status_vs_training": "ALERT",
+      "signals_vs_training": [
+        "workshop_load"
+      ],
+      "monitor_status": "ALERT",
+      "signals": [
+        "workshop_load"
+      ],
+      "psi_major": [],
+      "absent_or_empty": [],
+      "cost_change_vs_baseline": 0.665
+    }
+  ]
+}
