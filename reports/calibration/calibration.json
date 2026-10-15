@@ -1,0 +1,64 @@
+{
+  "brier_raw": 0.00497,
+  "brier_calibrated": 0.00473,
+  "ranking_preserved": true,
+  "table": [
+    {
+      "band": "(-0.001, 0.001]",
+      "trucks": 15246,
+      "observed": 0.0009,
+      "raw_mean": 0.0,
+      "calibrated_mean": 0.0007
+    },
+    {
+      "band": "(0.001, 0.01]",
+      "trucks": 252,
+      "observed": 0.0595,
+      "raw_mean": 0.0035,
+      "calibrated_mean": 0.0445
+    },
+    {
+      "band": "(0.01, 0.05]",
+      "trucks": 105,
+      "observed": 0.1714,
+      "raw_mean": 0.0224,
+      "calibrated_mean": 0.1539
+    },
+    {
+      "band": "(0.05, 0.2]",
+      "trucks": 55,
+      "observed": 0.2727,
+      "raw_mean": 0.1079,
+      "calibrated_mean": 0.2721
+    },
+    {
+      "band": "(0.2, 0.5]",
+      "trucks": 32,
+      "observed": 0.5625,
+      "raw_mean": 0.3372,
+      "calibrated_mean": 0.3737
+    },
+    {
+      "band": "(0.5, 0.8]",
+      "trucks": 35,
+      "observed": 0.8,
+      "raw_mean": 0.6584,
+      "calibrated_mean": 0.6
+    },
+    {
+      "band": "(0.8, 0.95]",
+      "trucks": 49,
+      "observed": 0.898,
+      "raw_mean": 0.9023,
+      "calibrated_mean": 0.8703
+    },
+    {
+      "band": "(0.95, 1.0]",
+      "trucks": 226,
+      "observed": 0.9912,
+      "raw_mean": 0.9922,
+      "calibrated_mean": 0.9813
+    }
+  ],
+  "note": "Calibrator fitted on training OOF only; test-set table is descriptive. Decisions use the raw-score threshold."
+}
