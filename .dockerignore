@@ -1,0 +1,9 @@
+data/
+.venv
+**/__pycache__
+reports/
+!reports/final/
+!reports/final/execution.json
+tests/
+docs/
+dashboard/
