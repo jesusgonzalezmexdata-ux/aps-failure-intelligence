@@ -2,7 +2,7 @@
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [1.1.0] — 2026-10-15
 
 ### Added
 - Monitoring: training reference, PSI drift, binomial workshop-load band, schema and missing-data checks; `POST /monitor`.
