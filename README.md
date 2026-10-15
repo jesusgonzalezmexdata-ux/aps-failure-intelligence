@@ -1,5 +1,7 @@
 # APS failure intelligence: cost-sensitive workshop triage for Scania trucks
 
+*English · [Español](README.es.md)*
+
 [![CI](https://github.com/jesusgonzalezmexdata-ux/aps-failure-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/jesusgonzalezmexdata-ux/aps-failure-intelligence/actions/workflows/ci.yml)
 ![Python 3.13](https://img.shields.io/badge/python-3.13-blue) ![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-green)
 
@@ -25,7 +27,7 @@
 - **Byte-verified data.** The official files are kept as gzip copies whose decompressed SHA256 equals the published files; tests reject any edited byte.
 - **Claims stay in scope.** This classifies current readings under a cost matrix. It does not forecast when a failure will happen, it does not claim causes, and the costs are the challenge's abstract units, not money.
 
-## Method in eight phases
+## Method, phase by phase
 
 | Phase | Output |
 |---|---|
