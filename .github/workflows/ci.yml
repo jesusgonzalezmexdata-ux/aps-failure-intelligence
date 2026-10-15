@@ -1,0 +1,62 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    name: Data, protocol and service tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.7"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - run: pip install -r requirements-dev.txt
+      - name: Training-set audit is reproducible
+        run: PYTHONPATH=src python -B -m aps_intel.audit && git diff --exit-code reports/audit
+      - name: SQL data contract (DuckDB)
+        run: PYTHONPATH=src python -B -m aps_intel.contract > /dev/null
+      - name: Tests (data integrity, sealed holdout, cost, CV, service, final guard)
+        run: python -B -m pytest -q -p no:cacheprovider
+
+  dashboard:
+    name: Dashboard smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.7"
+          cache: pip
+          cache-dependency-path: requirements*.txt
+      - run: pip install -r requirements-dashboard.txt pytest==9.1.1
+      - run: python -B -m pytest -q -p no:cacheprovider tests/test_dashboard.py
+
+  docker:
+    name: Inference image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Skip until the final model exists
+        id: model
+        run: test -f artifacts/model/aps_lightgbm.joblib && echo "present=true" >> "$GITHUB_OUTPUT" || echo "No frozen model yet"
+      - name: Build
+        if: steps.model.outputs.present == 'true'
+        run: docker build -t aps-triage .
+      - name: Health and scoring smoke test
+        if: steps.model.outputs.present == 'true'
+        run: |
+          docker run -d --name api -p 8000:8000 aps-triage
+          for i in $(seq 1 30); do curl -fs localhost:8000/health && break; sleep 2; done
+          curl -fs -X POST localhost:8000/score?explain=3 -H 'content-type: application/json' \
+            -d '{"trucks":[{"readings":{"aa_000":76698,"ac_000":2130706438}}]}' | tee /tmp/out.json
+          python3 -c "import json;r=json.load(open('/tmp/out.json'))['results'][0];assert r['decision'] in ('inspect_aps','no_action') and len(r['drivers'])==3"
