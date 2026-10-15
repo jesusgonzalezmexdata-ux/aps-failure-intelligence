@@ -1,0 +1,438 @@
+{
+  "family": "lightgbm_indicators",
+  "space": {
+    "num_leaves": [
+      15,
+      31,
+      63
+    ],
+    "learning_rate": [
+      0.02,
+      0.05,
+      0.1
+    ],
+    "n_estimators": [
+      300,
+      600,
+      1000
+    ],
+    "min_child_samples": [
+      10,
+      20,
+      50
+    ],
+    "colsample_bytree": [
+      0.5,
+      0.8
+    ],
+    "reg_lambda": [
+      0.0,
+      1.0,
+      5.0
+    ]
+  },
+  "budget": 12,
+  "sampler_seed": 42,
+  "selection_rule": "lowest nested CV cost; ties -> fewer trees",
+  "trials": [
+    {
+      "trial": 0,
+      "params": {
+        "reg_lambda": 0.0,
+        "num_leaves": 63,
+        "n_estimators": 600,
+        "min_child_samples": 10,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      "nested_cost": 36150,
+      "nested_fold_costs": [
+        6840,
+        8480,
+        7130,
+        7120,
+        6580
+      ],
+      "nested_fold_cost_std": 734.7108274688757,
+      "nested_confusion": {
+        "tp": 952,
+        "fp": 1215,
+        "fn": 48,
+        "tn": 57785
+      },
+      "pr_auc": 0.9027013739264561,
+      "brier": 0.004800843750435116,
+      "fit_seconds": 114.9
+    },
+    {
+      "trial": 1,
+      "params": {
+        "reg_lambda": 1.0,
+        "num_leaves": 15,
+        "n_estimators": 1000,
+        "min_child_samples": 10,
+        "learning_rate": 0.02,
+        "colsample_bytree": 0.8
+      },
+      "nested_cost": 35060,
+      "nested_fold_costs": [
+        5950,
+        8040,
+        6600,
+        7540,
+        6930
+      ],
+      "nested_fold_cost_std": 812.3853765301293,
+      "nested_confusion": {
+        "tp": 961,
+        "fp": 1556,
+        "fn": 39,
+        "tn": 57444
+      },
+      "pr_auc": 0.8985903392819853,
+      "brier": 0.004283207954825067,
+      "fit_seconds": 138.9
+    },
+    {
+      "trial": 2,
+      "params": {
+        "reg_lambda": 5.0,
+        "num_leaves": 63,
+        "n_estimators": 1000,
+        "min_child_samples": 10,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      "nested_cost": 34990,
+      "nested_fold_costs": [
+        6780,
+        7930,
+        6450,
+        7150,
+        6680
+      ],
+      "nested_fold_cost_std": 578.9386841453937,
+      "nested_confusion": {
+        "tp": 963,
+        "fp": 1649,
+        "fn": 37,
+        "tn": 57351
+      },
+      "pr_auc": 0.9001836647497622,
+      "brier": 0.004561380829174755,
+      "fit_seconds": 356.0
+    },
+    {
+      "trial": 3,
+      "params": {
+        "reg_lambda": 1.0,
+        "num_leaves": 63,
+        "n_estimators": 600,
+        "min_child_samples": 20,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      "nested_cost": 37370,
+      "nested_fold_costs": [
+        6390,
+        9990,
+        6480,
+        6950,
+        7560
+      ],
+      "nested_fold_cost_std": 1481.1583304967771,
+      "nested_confusion": {
+        "tp": 958,
+        "fp": 1637,
+        "fn": 42,
+        "tn": 57363
+      },
+      "pr_auc": 0.8984977447767881,
+      "brier": 0.004592682630211876,
+      "fit_seconds": 145.5
+    },
+    {
+      "trial": 4,
+      "params": {
+        "reg_lambda": 1.0,
+        "num_leaves": 31,
+        "n_estimators": 600,
+        "min_child_samples": 20,
+        "learning_rate": 0.05,
+        "colsample_bytree": 0.8
+      },
+      "nested_cost": 34440,
+      "nested_fold_costs": [
+        6370,
+        7810,
+        6010,
+        6810,
+        7440
+      ],
+      "nested_fold_cost_std": 741.633332584236,
+      "nested_confusion": {
+        "tp": 960,
+        "fp": 1444,
+        "fn": 40,
+        "tn": 57556
+      },
+      "pr_auc": 0.9010454987602082,
+      "brier": 0.004393079762639334,
+      "fit_seconds": 115.0
+    },
+    {
+      "trial": 5,
+      "params": {
+        "reg_lambda": 0.0,
+        "num_leaves": 63,
+        "n_estimators": 300,
+        "min_child_samples": 50,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.8
+      },
+      "nested_cost": 34930,
+      "nested_fold_costs": [
+        6500,
+        8450,
+        6010,
+        7000,
+        6970
+      ],
+      "nested_fold_cost_std": 912.7595521275031,
+      "nested_confusion": {
+        "tp": 955,
+        "fp": 1243,
+        "fn": 45,
+        "tn": 57757
+      },
+      "pr_auc": 0.9014743998716065,
+      "brier": 0.004725154147463109,
+      "fit_seconds": 80.7
+    },
+    {
+      "trial": 6,
+      "params": {
+        "reg_lambda": 1.0,
+        "num_leaves": 31,
+        "n_estimators": 300,
+        "min_child_samples": 20,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.5
+      },
+      "nested_cost": 38070,
+      "nested_fold_costs": [
+        6330,
+        7790,
+        6870,
+        9220,
+        7860
+      ],
+      "nested_fold_cost_std": 1103.734569541065,
+      "nested_confusion": {
+        "tp": 955,
+        "fp": 1557,
+        "fn": 45,
+        "tn": 57443
+      },
+      "pr_auc": 0.8973115148248821,
+      "brier": 0.004529978104064376,
+      "fit_seconds": 60.1
+    },
+    {
+      "trial": 7,
+      "params": {
+        "reg_lambda": 0.0,
+        "num_leaves": 15,
+        "n_estimators": 600,
+        "min_child_samples": 50,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.5
+      },
+      "nested_cost": 36870,
+      "nested_fold_costs": [
+        7080,
+        8530,
+        6600,
+        7820,
+        6840
+      ],
+      "nested_fold_cost_std": 791.5048957523888,
+      "nested_confusion": {
+        "tp": 951,
+        "fp": 1237,
+        "fn": 49,
+        "tn": 57763
+      },
+      "pr_auc": 0.8999831701156132,
+      "brier": 0.0045031805675029716,
+      "fit_seconds": 85.4
+    },
+    {
+      "trial": 8,
+      "params": {
+        "reg_lambda": 5.0,
+        "num_leaves": 31,
+        "n_estimators": 1000,
+        "min_child_samples": 10,
+        "learning_rate": 0.05,
+        "colsample_bytree": 0.5
+      },
+      "nested_cost": 37570,
+      "nested_fold_costs": [
+        6940,
+        8580,
+        7550,
+        7960,
+        6540
+      ],
+      "nested_fold_cost_std": 808.5047928120155,
+      "nested_confusion": {
+        "tp": 953,
+        "fp": 1407,
+        "fn": 47,
+        "tn": 57593
+      },
+      "pr_auc": 0.9023712545934934,
+      "brier": 0.004274567011579854,
+      "fit_seconds": 186.0
+    },
+    {
+      "trial": 9,
+      "params": {
+        "reg_lambda": 1.0,
+        "num_leaves": 31,
+        "n_estimators": 600,
+        "min_child_samples": 50,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.5
+      },
+      "nested_cost": 35390,
+      "nested_fold_costs": [
+        6380,
+        6880,
+        7140,
+        7900,
+        7090
+      ],
+      "nested_fold_cost_std": 549.1083681751718,
+      "nested_confusion": {
+        "tp": 954,
+        "fp": 1239,
+        "fn": 46,
+        "tn": 57761
+      },
+      "pr_auc": 0.9015146039632583,
+      "brier": 0.004503578944733489,
+      "fit_seconds": 113.6
+    },
+    {
+      "trial": 10,
+      "params": {
+        "reg_lambda": 0.0,
+        "num_leaves": 15,
+        "n_estimators": 600,
+        "min_child_samples": 10,
+        "learning_rate": 0.02,
+        "colsample_bytree": 0.5
+      },
+      "nested_cost": 36280,
+      "nested_fold_costs": [
+        6730,
+        8740,
+        6530,
+        6900,
+        7380
+      ],
+      "nested_fold_cost_std": 887.1471129412528,
+      "nested_confusion": {
+        "tp": 956,
+        "fp": 1428,
+        "fn": 44,
+        "tn": 57572
+      },
+      "pr_auc": 0.8951673907178509,
+      "brier": 0.004359216979169111,
+      "fit_seconds": 97.4
+    },
+    {
+      "trial": 11,
+      "params": {
+        "reg_lambda": 5.0,
+        "num_leaves": 31,
+        "n_estimators": 600,
+        "min_child_samples": 10,
+        "learning_rate": 0.1,
+        "colsample_bytree": 0.5
+      },
+      "nested_cost": 34740,
+      "nested_fold_costs": [
+        6630,
+        7670,
+        6820,
+        7040,
+        6580
+      ],
+      "nested_fold_cost_std": 442.34601840640545,
+      "nested_confusion": {
+        "tp": 962,
+        "fp": 1574,
+        "fn": 38,
+        "tn": 57426
+      },
+      "pr_auc": 0.9000254939081221,
+      "brier": 0.00439507542210687,
+      "fit_seconds": 111.6
+    }
+  ],
+  "selected": {
+    "trial": 4,
+    "params": {
+      "reg_lambda": 1.0,
+      "num_leaves": 31,
+      "n_estimators": 600,
+      "min_child_samples": 20,
+      "learning_rate": 0.05,
+      "colsample_bytree": 0.8
+    },
+    "nested_cost": 34440,
+    "nested_fold_costs": [
+      6370,
+      7810,
+      6010,
+      6810,
+      7440
+    ],
+    "nested_fold_cost_std": 741.633332584236,
+    "nested_confusion": {
+      "tp": 960,
+      "fp": 1444,
+      "fn": 40,
+      "tn": 57556
+    },
+    "pr_auc": 0.9010454987602082,
+    "brier": 0.004393079762639334,
+    "fit_seconds": 115.0
+  },
+  "seed_check": {
+    "runs": [
+      {
+        "seed": 7,
+        "nested_cost": 35690
+      },
+      {
+        "seed": 2024,
+        "nested_cost": 33220
+      },
+      {
+        "seed": 31337,
+        "nested_cost": 38480
+      }
+    ],
+    "costs": [
+      35690,
+      33220,
+      38480
+    ],
+    "mean": 35796.666666666664
+  }
+}
