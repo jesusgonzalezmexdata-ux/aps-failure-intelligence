@@ -1,0 +1,46 @@
+name: Experiment proposal
+description: Propose a new analysis or model. Pre-register it before running anything.
+labels: ["experiment"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The frozen model and the consumed holdout cannot be reused for new decisions.
+        A new model needs new, independent evaluation data. Define everything below **before** looking at results.
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis
+      description: What do you expect and why? State it so it can be falsified.
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data and scope
+      description: Source, size, license, and why it is independent of the consumed holdout.
+    validations:
+      required: true
+  - type: textarea
+    id: design
+    attributes:
+      label: Validation design
+      description: Split or CV protocol, primary metric, baseline to beat, and what counts as success or failure.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and limitations
+      description: Leakage, small classes, multiple comparisons, claims you will not make.
+    validations:
+      required: true
+  - type: checkboxes
+    id: integrity
+    attributes:
+      label: Integrity
+      options:
+        - label: I will not use the consumed 389-row holdout for any decision in this experiment.
+          required: true
+        - label: The primary metric and success criterion are fixed before running.
+          required: true

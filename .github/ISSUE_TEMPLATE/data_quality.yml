@@ -1,0 +1,25 @@
+name: Data quality issue
+description: A data contract, audit or reconciliation finding about the dataset or derived tables.
+labels: ["data-quality"]
+body:
+  - type: textarea
+    id: finding
+    attributes:
+      label: Finding
+      description: Which check (SQL contract in sql/contract.sql, audit) and which rows or columns.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Command, output, and the expected value according to the contract.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact on the evidence
+      description: Does it affect the frozen results, the service, or only tooling?
+    validations:
+      required: true

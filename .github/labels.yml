@@ -1,0 +1,8 @@
+- {name: bug, color: d73a4a, description: "Something does not work as documented"}
+- {name: experiment, color: 5319e7, description: "Pre-registered analysis or model proposal"}
+- {name: data-quality, color: fbca04, description: "Data contract, audit or reconciliation finding"}
+- {name: scientific-integrity, color: b60205, description: "Touches frozen evidence, holdout policy or claims"}
+- {name: service, color: f2c811, description: "FastAPI inference service, Docker image or dashboard"}
+- {name: documentation, color: 0075ca, description: "README, Model Card, evidence or guides"}
+- {name: reproducibility, color: 0e8a16, description: "Clean-clone, Docker, CI or platform behavior"}
+- {name: good first issue, color: 7057ff, description: "Small, well-scoped task for new contributors"}

@@ -1,0 +1,9 @@
+# Every change is reviewed by the maintainer; frozen scientific evidence is listed explicitly.
+*                          @jesusgonzalezmexdata-ux
+/data/raw/                 @jesusgonzalezmexdata-ux
+/artifacts/                @jesusgonzalezmexdata-ux
+/reports/final/            @jesusgonzalezmexdata-ux
+/reports/tuning/           @jesusgonzalezmexdata-ux
+/src/aps_intel/data.py     @jesusgonzalezmexdata-ux
+/src/aps_intel/final.py    @jesusgonzalezmexdata-ux
+/.github/workflows/        @jesusgonzalezmexdata-ux
