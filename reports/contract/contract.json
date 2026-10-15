@@ -1,0 +1,62 @@
+{
+  "engine": "duckdb 1.3.2",
+  "passed": 11,
+  "total": 11,
+  "checks": [
+    {
+      "check": "train_rows",
+      "ok": true,
+      "detail": 60000
+    },
+    {
+      "check": "train_columns",
+      "ok": true,
+      "detail": 171
+    },
+    {
+      "check": "class_domain",
+      "ok": true,
+      "detail": "neg,pos"
+    },
+    {
+      "check": "positive_count",
+      "ok": true,
+      "detail": 1000
+    },
+    {
+      "check": "features_numeric",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "check": "features_non_negative",
+      "ok": true,
+      "detail": 0.0
+    },
+    {
+      "check": "missing_rate_bounded",
+      "ok": true,
+      "detail": 82.11
+    },
+    {
+      "check": "single_constant_feature",
+      "ok": true,
+      "detail": "cd_000"
+    },
+    {
+      "check": "histogram_bins_complete",
+      "ok": true,
+      "detail": "ag,ay,az,ba,cn,cs,ee"
+    },
+    {
+      "check": "holdout_rows",
+      "ok": true,
+      "detail": 16000
+    },
+    {
+      "check": "holdout_same_columns",
+      "ok": true,
+      "detail": 170
+    }
+  ]
+}
