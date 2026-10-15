@@ -1,0 +1,260 @@
+{
+  "scope": "Classification of current readings under the official cost; not a time-to-failure forecast.",
+  "threshold": 0.001362310330346284,
+  "oof_reproduces_frozen_threshold": true,
+  "holdout_metrics": {
+    "pr_auc": 0.9335,
+    "roc_auc": 0.9953,
+    "brier": 0.00497,
+    "pr_auc_95": [
+      0.9123,
+      0.9524
+    ],
+    "recall_95": [
+      0.9354,
+      0.9762
+    ],
+    "checks_per_1000_95": [
+      41.375,
+      47.75
+    ]
+  },
+  "cost_ratio_sensitivity": [
+    {
+      "ratio": 10,
+      "threshold": 0.011724537108332288,
+      "holdout_cost": 4520,
+      "flag_none_cost": 37500,
+      "recall": 0.9173,
+      "checks_per_1000": 30.38,
+      "tp": 344,
+      "fp": 142,
+      "fn": 31,
+      "tn": 15483
+    },
+    {
+      "ratio": 25,
+      "threshold": 0.0029801565965266617,
+      "holdout_cost": 7360,
+      "flag_none_cost": 93750,
+      "recall": 0.9493,
+      "checks_per_1000": 38.56,
+      "tp": 356,
+      "fp": 261,
+      "fn": 19,
+      "tn": 15364
+    },
+    {
+      "ratio": 50,
+      "threshold": 0.001362310330346284,
+      "holdout_cost": 11540,
+      "flag_none_cost": 187500,
+      "recall": 0.9573,
+      "checks_per_1000": 44.56,
+      "tp": 359,
+      "fp": 354,
+      "fn": 16,
+      "tn": 15271
+    },
+    {
+      "ratio": 100,
+      "threshold": 0.0008213967803043581,
+      "holdout_cost": 15350,
+      "flag_none_cost": 375000,
+      "recall": 0.9707,
+      "checks_per_1000": 49.94,
+      "tp": 364,
+      "fp": 435,
+      "fn": 11,
+      "tn": 15190
+    }
+  ],
+  "calibration": [
+    {
+      "bin": "(-0.001, 0.001]",
+      "mean_score": 3e-05,
+      "observed_rate": 0.00085,
+      "n": 15246
+    },
+    {
+      "bin": "(0.001, 0.01]",
+      "mean_score": 0.00348,
+      "observed_rate": 0.05952,
+      "n": 252
+    },
+    {
+      "bin": "(0.01, 0.05]",
+      "mean_score": 0.02244,
+      "observed_rate": 0.17143,
+      "n": 105
+    },
+    {
+      "bin": "(0.05, 0.2]",
+      "mean_score": 0.10793,
+      "observed_rate": 0.27273,
+      "n": 55
+    },
+    {
+      "bin": "(0.2, 0.5]",
+      "mean_score": 0.33718,
+      "observed_rate": 0.5625,
+      "n": 32
+    },
+    {
+      "bin": "(0.5, 0.8]",
+      "mean_score": 0.65841,
+      "observed_rate": 0.8,
+      "n": 35
+    },
+    {
+      "bin": "(0.8, 0.95]",
+      "mean_score": 0.90235,
+      "observed_rate": 0.89796,
+      "n": 49
+    },
+    {
+      "bin": "(0.95, 1.0]",
+      "mean_score": 0.99221,
+      "observed_rate": 0.99115,
+      "n": 226
+    }
+  ],
+  "errors": {
+    "tp": {
+      "n": 359,
+      "median_score": 0.985611,
+      "mean_missing_readings": 30.76
+    },
+    "fn": {
+      "n": 16,
+      "median_score": 0.000611,
+      "mean_missing_readings": 21.44
+    },
+    "fp": {
+      "n": 354,
+      "median_score": 0.007384,
+      "mean_missing_readings": 34.1
+    },
+    "tn": {
+      "n": 15271,
+      "median_score": 4e-06,
+      "mean_missing_readings": 13.44
+    }
+  },
+  "workshop": {
+    "per_1000_trucks": {
+      "inspections": 44.56,
+      "failures_caught": 22.44,
+      "failures_missed": 1.0,
+      "false_alarms": 22.12
+    },
+    "cost_per_truck": 0.721,
+    "flag_none_cost_per_truck": 11.719,
+    "precision_of_inspections": 0.5035
+  },
+  "drivers_all": [
+    {
+      "feature": "cb_000",
+      "mean_abs_contribution": 0.3645
+    },
+    {
+      "feature": "bs_000",
+      "mean_abs_contribution": 0.3371
+    },
+    {
+      "feature": "ay_006",
+      "mean_abs_contribution": 0.3067
+    },
+    {
+      "feature": "aa_000",
+      "mean_abs_contribution": 0.2935
+    },
+    {
+      "feature": "bk_000",
+      "mean_abs_contribution": 0.2417
+    },
+    {
+      "feature": "ba_008",
+      "mean_abs_contribution": 0.2343
+    },
+    {
+      "feature": "co_000",
+      "mean_abs_contribution": 0.2307
+    },
+    {
+      "feature": "ci_000",
+      "mean_abs_contribution": 0.2284
+    },
+    {
+      "feature": "ck_000",
+      "mean_abs_contribution": 0.2144
+    },
+    {
+      "feature": "ba_006",
+      "mean_abs_contribution": 0.1766
+    },
+    {
+      "feature": "ag_009",
+      "mean_abs_contribution": 0.1749
+    },
+    {
+      "feature": "az_006",
+      "mean_abs_contribution": 0.1668
+    },
+    {
+      "feature": "cs_000",
+      "mean_abs_contribution": 0.1575
+    },
+    {
+      "feature": "ai_000",
+      "mean_abs_contribution": 0.1492
+    },
+    {
+      "feature": "bj_000",
+      "mean_abs_contribution": 0.148
+    }
+  ],
+  "drivers_missed_failures": [
+    {
+      "feature": "ci_000",
+      "mean_abs_contribution": 0.7701
+    },
+    {
+      "feature": "aa_000",
+      "mean_abs_contribution": 0.6459
+    },
+    {
+      "feature": "ck_000",
+      "mean_abs_contribution": 0.5414
+    },
+    {
+      "feature": "bj_000",
+      "mean_abs_contribution": 0.5265
+    },
+    {
+      "feature": "ai_000",
+      "mean_abs_contribution": 0.417
+    },
+    {
+      "feature": "bs_000",
+      "mean_abs_contribution": 0.3786
+    },
+    {
+      "feature": "cb_000",
+      "mean_abs_contribution": 0.369
+    },
+    {
+      "feature": "ay_008",
+      "mean_abs_contribution": 0.3515
+    },
+    {
+      "feature": "ay_006",
+      "mean_abs_contribution": 0.3231
+    },
+    {
+      "feature": "bk_000",
+      "mean_abs_contribution": 0.2691
+    }
+  ],
+  "holdout_curve_note": "Descriptive only; the decision threshold came from training OOF scores."
+}
