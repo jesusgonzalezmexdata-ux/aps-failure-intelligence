@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+build/
+# Original UCI download; the repository keeps verified gzip copies in data/raw/
+*.zip

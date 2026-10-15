@@ -1,0 +1,4 @@
+*.gz binary
+data/raw/aps_failure_description.txt binary
+data/raw/SHA256SUMS text eol=lf
+reports/**/*.json text eol=lf

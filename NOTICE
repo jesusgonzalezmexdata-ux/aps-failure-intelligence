@@ -1,0 +1,19 @@
+aps-failure-intelligence
+Copyright 2026 Jesus R. L. Gonzalez
+
+The code and documentation of this repository are licensed under the
+Apache License, Version 2.0 (see LICENSE).
+
+Data (data/raw/) are redistributed unmodified and are NOT covered by the
+Apache License:
+
+  APS Failure at Scania Trucks. Creator: Scania CV AB (2016).
+  UCI Machine Learning Repository. https://doi.org/10.24432/C51S51
+
+  - The UCI repository lists the dataset under the Creative Commons
+    Attribution 4.0 International license (CC BY 4.0).
+  - Each data file carries a notice from Scania CV AB stating that it is
+    distributed under the GNU General Public License, version 3 or later.
+    That notice is preserved verbatim at the top of each file.
+
+Derived reports in reports/ remain subject to the dataset's attribution terms.
