@@ -7,6 +7,7 @@ COPY requirements-service.txt .
 RUN pip install --no-cache-dir -r requirements-service.txt
 COPY src/ src/
 COPY artifacts/model/ artifacts/model/
+COPY artifacts/monitoring/ artifacts/monitoring/
 COPY reports/final/execution.json reports/final/execution.json
 ENV PYTHONPATH=/app/src PYTHONDONTWRITEBYTECODE=1
 RUN useradd --create-home app && chown -R app /app

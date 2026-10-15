@@ -40,6 +40,15 @@ def test_score_matches_model_and_accepts_missing(client):
     assert len(body["results"][0]["drivers"]) == 3
 
 
+def test_monitor_endpoint_and_calibrated_risk(client):
+    c, X, y = client
+    trucks = [dict(readings={k: (None if v != v else v) for k, v in r.items()}) for r in X.head(50).to_dict("records")]
+    body = c.post("/monitor", json=dict(trucks=trucks)).json()
+    assert body["trucks"] == 50 and body["status"] in ("OK", "WARN", "ALERT")
+    risk = c.post("/score", json=dict(trucks=trucks[:1])).json()["results"][0]["calibrated_risk"]
+    assert 0 <= risk <= 1
+
+
 def test_unknown_reading_is_rejected(client):
     r = client[0].post("/score", json=dict(trucks=[dict(readings={"zz_999": 1.0})]))
     assert r.status_code == 422

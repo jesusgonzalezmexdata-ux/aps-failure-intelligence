@@ -23,9 +23,12 @@ from pydantic import BaseModel, Field
 
 from aps_intel.cost import COST_FN, COST_FP
 from aps_intel.data import ROOT
+from aps_intel.monitor import monitor
 
 MODEL_PATH = Path(os.environ.get("APS_MODEL_PATH", ROOT / "artifacts/model/aps_lightgbm.joblib"))
 DECISION_PATH = Path(os.environ.get("APS_DECISION_PATH", ROOT / "reports/final/execution.json"))
+CALIBRATOR_PATH = Path(os.environ.get("APS_CALIBRATOR_PATH", ROOT / "artifacts/model/isotonic_calibrator.json"))
+REFERENCE_PATH = Path(os.environ.get("APS_REFERENCE_PATH", ROOT / "artifacts/monitoring/reference.json"))
 MAX_RECORDS = 1000
 
 
@@ -43,7 +46,9 @@ def bundle():
     decision = json.loads(DECISION_PATH.read_text(encoding="utf-8"))
     return dict(model=model, threshold=float(decision["threshold"]),
                 features=list(model.steps[0][1].columns_) + ["cd_000"],
-                sha256=hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest())
+                sha256=hashlib.sha256(MODEL_PATH.read_bytes()).hexdigest(),
+                calibrator=json.loads(CALIBRATOR_PATH.read_text(encoding="utf-8")) if CALIBRATOR_PATH.exists() else None,
+                reference=json.loads(REFERENCE_PATH.read_text(encoding="utf-8")) if REFERENCE_PATH.exists() else None)
 
 
 def _frame(trucks: list[Truck], features: list[str]) -> pd.DataFrame:
@@ -83,5 +88,16 @@ def score(request: ScoreRequest, explain: int = 0):
     drivers = _drivers(b["model"], X, explain) if explain > 0 else [None] * len(p)
     return dict(threshold=b["threshold"], results=[
         dict(score=round(float(s), 6), decision="inspect_aps" if s >= b["threshold"] else "no_action",
+             calibrated_risk=round(float(np.interp(s, b["calibrator"]["x"], b["calibrator"]["y"])), 4) if b["calibrator"] else None,
              missing_readings=int(X.iloc[i].isna().sum()), drivers=drivers[i])
         for i, s in enumerate(p)])
+
+
+@app.post("/monitor")
+def monitor_batch(request: ScoreRequest):
+    """Workshop-load, drift and data-quality signals for a batch, against the training reference."""
+    b = bundle()
+    if b["reference"] is None:
+        raise HTTPException(503, "Monitoring reference not available")
+    X = _frame(request.trucks, b["features"])
+    return monitor(X, b["model"].predict_proba(X)[:, 1], b["reference"])
