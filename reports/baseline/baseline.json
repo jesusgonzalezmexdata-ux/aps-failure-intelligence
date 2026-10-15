@@ -1,0 +1,51 @@
+{
+  "protocol": {
+    "cv": "StratifiedKFold(5, shuffle=True, random_state=42)",
+    "rows": 60000,
+    "positives": 1000,
+    "cost_fp": 10,
+    "cost_fn": 500,
+    "threshold_policy": "nested: each fold uses the cost-optimal threshold of the other folds"
+  },
+  "trivial": {
+    "flag_none": 500000,
+    "flag_all": 590000
+  },
+  "logistic_regression": {
+    "nested_cost": 52100,
+    "nested_confusion": {
+      "tp": 929,
+      "fp": 1660,
+      "fn": 71,
+      "tn": 57340
+    },
+    "nested_fold_costs": [
+      8980,
+      13990,
+      8560,
+      10840,
+      9730
+    ],
+    "nested_fold_cost_std": 2175.4654674344984,
+    "nested_thresholds": {
+      "0": 0.580423619977993,
+      "1": 0.6585588964188134,
+      "2": 0.580423619977993,
+      "3": 0.580423619977993,
+      "4": 0.5853238756715036
+    },
+    "pooled_optimal_threshold": 0.580423619977993,
+    "pooled_optimal_cost": 49100,
+    "bayes_threshold_cost": 142580,
+    "bayes_threshold_confusion": {
+      "tp": 985,
+      "fp": 13508,
+      "fn": 15,
+      "tn": 45492
+    },
+    "pr_auc": 0.7827147643406221,
+    "roc_auc": 0.9845229152542374,
+    "brier": 0.02702364321569379,
+    "fit_seconds": 87.4
+  }
+}
