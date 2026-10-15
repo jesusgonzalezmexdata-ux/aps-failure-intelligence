@@ -26,4 +26,6 @@ POST_HOLDOUT_TUNING = FALSE
 | 6 · Single final evaluation | Done | [06](06_final_evaluation.md): cost 11,540 (95 % CI 7,940–15,661), recall 95.7 % |
 | 7 · Errors, uncertainty, cost economics | Done | [07](07_errors_uncertainty_economics.md): saves 88–96 % for ratios 10:1–100:1 |
 | 8 · Model Card, artifacts, release | Done | [MODEL_CARD.md](../MODEL_CARD.md), [CHANGELOG](../CHANGELOG.md) |
-| Next · Real-world data | Planned | [08](08_real_world_data_strategy.md) |
+| 9 · Stress test and monitoring | Done | [09](09_stress_test_and_monitoring.md) |
+| 10 · Recalibration | Done | [10](10_calibration.md) |
+| Next · Real-world data | Planned | [08](08_real_world_data_strategy.md): Tracks B and C |

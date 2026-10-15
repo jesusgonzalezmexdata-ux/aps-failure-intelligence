@@ -2,6 +2,13 @@
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+- Monitoring: training reference, PSI drift, binomial workshop-load band, schema and missing-data checks; `POST /monitor`.
+- Stress test with eight real-world data defects (docs/09).
+- Isotonic recalibration fitted on training OOF scores; `calibrated_risk` in `/score` (docs/10).
+
 ## [1.0.0] — 2026-10-15
 
 ### Added
