@@ -37,7 +37,9 @@
 | 6 · Single final evaluation | [06](docs/06_final_evaluation.md): 11,540 on the official test set |
 | 7 · Errors, uncertainty, economics | [07](docs/07_errors_uncertainty_economics.md): bootstrap, cost-ratio sensitivity, calibration, drivers |
 | 8 · Model Card and release | [MODEL_CARD.md](MODEL_CARD.md) |
-| Next · Real-world data | [08](docs/08_real_world_data_strategy.md): stress test, public dirty data, real partner |
+| 9 · Stress test and monitoring | [09](docs/09_stress_test_and_monitoring.md): 8 injected defects; 5 alerts, 1 warning, 2 invisible by design |
+| 10 · Recalibration | [10](docs/10_calibration.md): isotonic on training OOF; Brier 0.00497 → 0.00473, ranking unchanged |
+| Next · Real-world data | [08](docs/08_real_world_data_strategy.md): public dirty data and a real partner |
 
 ## Stack, and why each piece is here
 
@@ -47,7 +49,8 @@
 | Modelling | **Python**: pandas, scikit-learn, **LightGBM** | Fold-safe features, nested cost CV, gradient boosting |
 | Decision | Cost-optimal threshold (exact search over all cuts) | Turns scores into the check / no-check rule |
 | Explanations | LightGBM contributions (`pred_contrib`) | Readings that pushed each truck's score |
-| Serving | **FastAPI** + **Docker** ([service.py](src/aps_intel/service.py)) | `/score` returns score, decision and drivers per truck; `/health` returns the model hash and cost matrix |
+| Serving | **FastAPI** + **Docker** ([service.py](src/aps_intel/service.py)) | `/score` returns score, decision, calibrated risk and drivers per truck; `/health` returns the model hash and cost matrix |
+| Monitoring | PSI, binomial workshop-load band, schema checks ([monitor.py](src/aps_intel/monitor.py)) | `/monitor` flags drift, missing data and unexpected workshop load against the training reference |
 | Decision support | **Streamlit** + Altair ([dashboard/app.py](dashboard/app.py)) | Enter your own costs and fleet size; the threshold is re-chosen on training data and its test-set consequences shown |
 | Quality gate | **pytest** + **GitHub Actions** | Data integrity, sealed holdout, cost optimality, service, dashboard and Docker smoke tests |
 
@@ -61,6 +64,8 @@ python -B -m aps_intel.audit                            # phase 1
 python -B -m aps_intel.contract                         # SQL data contract
 python -B -m pytest -q                                  # all tests
 python -B -m aps_intel.final --replay                   # re-verify the final cost from stored scores
+python -B -m aps_intel.stress                           # stress test with the frozen rule
+python -B -m aps_intel.calibration                      # isotonic recalibration (training OOF only)
 ```
 
 Phases 3–5 and 7 re-run with `python -B -m aps_intel.{baseline,candidates,tuning,analysis}` (minutes to about an hour on two cores). `aps_intel.final` without `--replay` refuses to run again by design.

@@ -94,6 +94,6 @@ Target partners: a fleet operator, a transport company, a maintenance workshop o
 
 ## Plan
 
-1. **Weeks 1–2, Track A:** stress-test module, new contract checks, monitoring rule, report.
+1. **Weeks 1–2, Track A:** done ([09](09_stress_test_and_monitoring.md)): stress-test module, monitoring rule and report. Duplicate-key check waits for a real asset ID.
 2. **Weeks 2–5, Track B:** one public source, entity cleaning and text pipeline, one practitioner interview.
 3. **Weeks 4–12, Track C:** approach 3–5 companies, sign one, follow the eight steps, publish the case study.
