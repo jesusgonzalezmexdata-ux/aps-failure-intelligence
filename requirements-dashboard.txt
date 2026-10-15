@@ -1,0 +1,5 @@
+# Decision dashboard (streamlit run dashboard/app.py)
+numpy==2.2.6
+pandas==2.3.3
+streamlit==1.48.1
+altair==5.5.0
