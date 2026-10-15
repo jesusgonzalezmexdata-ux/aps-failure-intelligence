@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software or its evidence, please cite it as below."
+title: "APS failure intelligence: cost-sensitive workshop triage on the Scania APS data"
+type: software
+authors:
+  - family-names: "Gonzalez"
+    given-names: "Jesus R. L."
+license: Apache-2.0
+version: "1.0.0"
+date-released: "2026-10-15"
+repository-code: "https://github.com/jesusgonzalezmexdata-ux/aps-failure-intelligence"
+keywords:
+  - cost-sensitive classification
+  - predictive maintenance data
+  - decision threshold
+  - model validation
+  - data contract
+  - reproducibility
+references:
+  - type: data
+    title: "APS Failure at Scania Trucks"
+    authors:
+      - name: "Scania CV AB"
+    year: 2016
+    publisher:
+      name: "UCI Machine Learning Repository"
+    doi: "10.24432/C51S51"
