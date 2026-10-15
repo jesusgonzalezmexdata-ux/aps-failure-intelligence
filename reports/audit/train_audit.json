@@ -1,0 +1,53 @@
+{
+  "rows": 60000,
+  "features": 170,
+  "positives": 1000,
+  "negatives": 59000,
+  "positive_rate": 0.016666666666666666,
+  "duplicate_rows": 0,
+  "missing_cell_rate": 0.08333480392156863,
+  "missing_cell_rate_by_class": {
+    "neg": 0.08184067796610169,
+    "pos": 0.17148823529411744
+  },
+  "features_over_50pct_missing": [
+    "ab_000",
+    "bm_000",
+    "bn_000",
+    "bo_000",
+    "bp_000",
+    "bq_000",
+    "br_000",
+    "cr_000"
+  ],
+  "features_over_20pct_missing": 24,
+  "max_feature_missing_rate": 0.8210666666666666,
+  "constant_features": [
+    "cd_000"
+  ],
+  "negative_values": 0,
+  "histogram_groups": {
+    "ag": 10,
+    "ay": 10,
+    "az": 10,
+    "ba": 10,
+    "cn": 10,
+    "cs": 10,
+    "ee": 10
+  },
+  "single_counters": 100,
+  "holdout": {
+    "sha256": "2cdf6f7661c7b4c63333c93cdec36a3a82350176b604a2312cf82799fb2712f3",
+    "rows": 16000,
+    "columns": 171,
+    "same_schema_as_train": true
+  },
+  "official_costs": {
+    "false_positive": 10,
+    "false_negative": 500
+  },
+  "cost_of_trivial_policies": {
+    "flag_none": 500000,
+    "flag_all": 590000
+  }
+}
