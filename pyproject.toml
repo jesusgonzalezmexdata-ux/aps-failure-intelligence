@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aps-failure-intelligence"
+version = "0.1.0"
+description = "Cost-sensitive failure intelligence for the Scania APS dataset"
+requires-python = ">=3.13,<3.14"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Jesus R. L. Gonzalez" }]
+readme = "README.md"
+dynamic = ["dependencies"]
+
+[project.urls]
+Repository = "https://github.com/jesusgonzalezmexdata-ux/aps-failure-intelligence"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
