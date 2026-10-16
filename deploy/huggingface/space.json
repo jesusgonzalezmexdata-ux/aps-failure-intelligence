@@ -1,0 +1,19 @@
+{
+  "title": "APS failure triage",
+  "emoji": "🚚",
+  "colorFrom": "yellow",
+  "colorTo": "gray",
+  "entrypoint": "dashboard/app.py",
+  "requirements": [
+    "altair"
+  ],
+  "include": [
+    "dashboard/app.py",
+    "reports/analysis/oof_scores.csv",
+    "reports/analysis/holdout_scored.csv"
+  ],
+  "short_description": "Cost-sensitive workshop triage for Scania trucks",
+  "summary": "Set your own costs and fleet size: the check / no-check rule is re-chosen on training data and its consequences on Scania's test set are shown (−94 % official cost against no triage).",
+  "repo": "aps-failure-intelligence",
+  "license": "apache-2.0"
+}
