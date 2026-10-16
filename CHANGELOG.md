@@ -2,6 +2,12 @@
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2026-10-16
+
+### Added
+- Project page on GitHub Pages and a live demo on Hugging Face Spaces, published automatically from `main`.
+- Release workflow: notes from this changelog and an evidence bundle attached to every tag.
+
 ## [1.1.0] — 2026-10-15
 
 ### Added
