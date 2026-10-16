@@ -38,12 +38,20 @@ jobs:
         run: |
           pip install -q "huggingface_hub>=0.34,<1"
           python - <<'PY'
-          import os
+          import os, sys
           from huggingface_hub import HfApi
           api = HfApi(token=os.environ["HF_TOKEN"])
           space = os.environ["HF_SPACE"]
-          api.create_repo(space, repo_type="space", space_sdk="docker", exist_ok=True)
-          api.upload_folder(folder_path="_space", repo_id=space, repo_type="space", delete_patterns="*",
-                            commit_message=f"Sync from GitHub {os.environ['GITHUB_SHA'][:7]}")
+          try:
+              who = api.whoami()
+              role = (who.get("auth", {}).get("accessToken", {}) or {}).get("role", "unknown")
+              print(f"Token belongs to {who.get('name')} with role {role}")
+              api.create_repo(space, repo_type="space", space_sdk="docker", exist_ok=True)
+              api.upload_folder(folder_path="_space", repo_id=space, repo_type="space", delete_patterns="*",
+                                commit_message=f"Sync from GitHub {os.environ['GITHUB_SHA'][:7]}")
+          except Exception as exc:
+              msg = str(exc).splitlines()[0][:300]
+              print(f"::error title=Hugging Face publish failed::{type(exc).__name__}: {msg}")
+              sys.exit(1)
           print(f"https://huggingface.co/spaces/{space}")
           PY
