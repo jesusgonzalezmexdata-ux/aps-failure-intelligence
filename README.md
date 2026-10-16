@@ -2,6 +2,8 @@
 
 *English · [Español](README.es.md)*
 
+**[Live demo](https://huggingface.co/spaces/JesusRLGonzalez/aps-failure-intelligence)** | **[Project page](https://jesusgonzalezmexdata-ux.github.io/aps-failure-intelligence/)**
+
 [![CI](https://github.com/jesusgonzalezmexdata-ux/aps-failure-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/jesusgonzalezmexdata-ux/aps-failure-intelligence/actions/workflows/ci.yml)
 ![Python 3.13](https://img.shields.io/badge/python-3.13-blue) ![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-green)
 
