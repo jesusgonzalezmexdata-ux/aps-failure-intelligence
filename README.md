@@ -116,6 +116,16 @@ docs/              one document per phase and PROJECT_STATE.md
 
 This repository continues `steel-plates-quality-intelligence` under a name that matches its content. On 2026-10-15 the history was reorganised into one commit per logical step, in the order the work was done; the commit dates are those of the reorganisation. The original repository keeps the timestamped evidence that the final-evaluation and analysis rules were pushed before the test set was opened (pull request #2, commit `8a43e95` before `efe76df`).
 
+## Skills demonstrated
+
+| Skill | Evidence |
+|---|---|
+| Bayesian statistics / Estadística bayesiana | `src/aps_intel/alert_calibrator.py`, `src/aps_intel/cost.py` (contracción hacia la tasa global) |
+| Model monitoring / Monitoreo de modelos | `src/aps_intel/monitor.py` (banda binomial, ji cuadrada) |
+| Predictive maintenance / Mantenimiento predictivo | `src/aps_intel/cost.py` (umbral de menor costo) |
+| Machine learning, FastAPI, DuckDB | `src/aps_intel/`, `src/aps_intel/service.py` |
+| Data visualization, Git, CI, testing / Visualización de datos, Git, integración continua, pruebas | `dashboard/app.py`, `.github/workflows/`, `tests/` |
+
 ## License and citation
 
 Code: [Apache-2.0](LICENSE). Data: Scania CV AB via the UCI Machine Learning Repository, [doi:10.24432/C51S51](https://doi.org/10.24432/C51S51). UCI lists CC BY 4.0; the files carry a GPL-3.0 notice. Both are kept, see [NOTICE](NOTICE). Cite this repository with [CITATION.cff](CITATION.cff).

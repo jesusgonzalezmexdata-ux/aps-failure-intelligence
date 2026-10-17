@@ -72,6 +72,16 @@ Los documentos de cada fase están en [`docs/`](docs) (en inglés).
 
 Los comandos están en la sección *Reproduce* del [README en inglés](README.md#reproduce).
 
+## Aptitudes demostradas
+
+| Aptitud | Evidencia |
+|---|---|
+| Bayesian statistics / Estadística bayesiana | `src/aps_intel/alert_calibrator.py`, `src/aps_intel/cost.py` (contracción hacia la tasa global) |
+| Model monitoring / Monitoreo de modelos | `src/aps_intel/monitor.py` (banda binomial, ji cuadrada) |
+| Predictive maintenance / Mantenimiento predictivo | `src/aps_intel/cost.py` (umbral de menor costo) |
+| Machine learning, FastAPI, DuckDB | `src/aps_intel/`, `src/aps_intel/service.py` |
+| Data visualization, Git, CI, testing / Visualización de datos, Git, integración continua, pruebas | `dashboard/app.py`, `.github/workflows/`, `tests/` |
+
 ## Licencia y cita
 
 Código: [Apache-2.0](LICENSE). Datos: Scania CV AB vía UCI Machine Learning Repository, [doi:10.24432/C51S51](https://doi.org/10.24432/C51S51). Ver [NOTICE](NOTICE) y [CITATION.cff](CITATION.cff).
