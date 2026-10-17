@@ -39,7 +39,7 @@ jobs:
           cache: pip
           cache-dependency-path: requirements*.txt
       - run: pip install -r requirements-dashboard.txt pytest==9.1.1
-      - run: python -B -m pytest -q -p no:cacheprovider tests/test_dashboard.py
+      - run: python -B -m pytest -q -p no:cacheprovider tests/test_dashboard.py tests/test_alert_mvp.py
 
   docker:
     name: Inference image

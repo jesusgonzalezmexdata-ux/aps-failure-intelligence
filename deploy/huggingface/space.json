@@ -5,15 +5,43 @@
   "colorTo": "gray",
   "entrypoint": "dashboard/app.py",
   "requirements": [
-    "altair"
+    "altair",
+    "scipy",
+    "openpyxl"
   ],
   "include": [
     "dashboard/app.py",
+    "dashboard/estilo.py",
+    "dashboard/ui_alertas.py",
+    "src/aps_intel/__init__.py",
+    "src/aps_intel/data.py",
+    "src/aps_intel/cost.py",
+    "src/aps_intel/monitor.py",
+    "src/aps_intel/alert_intake.py",
+    "src/aps_intel/alert_calibrator.py",
+    "src/aps_intel/alert_report.py",
     "reports/analysis/oof_scores.csv",
     "reports/analysis/holdout_scored.csv"
   ],
-  "short_description": "Cost-sensitive workshop triage for Scania trucks",
-  "summary": "Set your own costs and fleet size: the check / no-check rule is re-chosen on training data and its consequences on Scania's test set are shown (−94 % official cost against no triage).",
+  "short_description": "Which fleet alerts are worth a workshop check; try yours",
+  "summary": "Scania APS case, or upload your fleet's alert history: the cost-optimal rule, the expected weekly workshop load and a weekly drift monitor are computed in your browser and your data never leave it.",
   "repo": "aps-failure-intelligence",
-  "license": "apache-2.0"
+  "license": "apache-2.0",
+  "streamlitConfig": {
+    "theme.base": "light",
+    "theme.primaryColor": "#0E0F11",
+    "theme.backgroundColor": "#FFFFFF",
+    "theme.secondaryBackgroundColor": "#F6F7F5",
+    "theme.textColor": "#0E0F11",
+    "theme.redColor": "#D7261E",
+    "theme.greenColor": "#1F7A3D",
+    "theme.yellowColor": "#FFD21F",
+    "theme.grayColor": "#4A4E54",
+    "theme.linkColor": "#0E0F11",
+    "theme.borderColor": "#C9CDD1",
+    "theme.showWidgetBorder": true,
+    "theme.baseRadius": "4px",
+    "theme.buttonRadius": "6px",
+    "theme.dataframeHeaderBackgroundColor": "#F6F7F5"
+  }
 }

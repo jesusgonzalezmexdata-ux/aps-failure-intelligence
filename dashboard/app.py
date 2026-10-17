@@ -2,9 +2,12 @@
 
 streamlit run dashboard/app.py   (after python -B -m aps_intel.analysis)
 
+Two modes: the Scania case (evidence) and «Tus alertas», the cost calibrator for a fleet's own alert history.
+
 The threshold is always chosen on training out-of-fold scores for the costs you enter;
 the holdout only shows what that rule would have done on unseen trucks.
 """
+import sys
 from pathlib import Path
 
 import altair as alt
@@ -13,6 +16,9 @@ import pandas as pd
 import streamlit as st
 
 DATA = Path(__file__).resolve().parents[1] / "reports" / "analysis"
+for extra in (Path(__file__).resolve().parent, Path(__file__).resolve().parents[1] / "src"):
+    if str(extra) not in sys.path:
+        sys.path.insert(0, str(extra))
 
 
 @st.cache_data
@@ -38,6 +44,17 @@ def outcome(score, label, t, c_fp, c_fn):
 
 
 st.set_page_config(page_title="APS triage economics", layout="wide")
+from estilo import aplicar as aplicar_estilo
+
+aplicar_estilo()
+mode = st.segmented_control("Modo", ["Caso Scania (evidencia)", "Tus alertas"], default="Caso Scania (evidencia)",
+                            required=True, label_visibility="collapsed")
+if mode == "Tus alertas":
+    from ui_alertas import render
+
+    render()
+    st.stop()
+
 st.title("APS workshop triage: decision economics")
 st.caption("Scania APS public data. Classification of current readings under a cost matrix; "
            "not a forecast of when a failure will happen.")

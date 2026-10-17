@@ -18,6 +18,17 @@
 
 ![Costo frente al umbral](reports/figures/cost_vs_threshold.png)
 
+## Úsalo con las alertas de tu flota (MVP)
+
+Las 170 lecturas de Scania son internas del fabricante; el producto es el **método**: decidir por costo qué alertas merecen revisión en taller y vigilar la carga cada semana. En la [demo](https://huggingface.co/spaces/JesusRLGonzalez/aps-failure-intelligence), modo **«Tus alertas»**:
+
+1. Descarga la plantilla o sube la exportación de tu telemática (`.xlsx` o `.csv`): unidad, fecha, tipo de alerta, puntaje opcional, si se revisó y si se confirmó la falla (en taller o como avería en ruta en 30 días).
+2. Captura el costo de una revisión, el costo extra de una falla en ruta y, si quieres, la capacidad semanal del taller.
+3. Obtén la regla de menor costo, la banda de revisiones por semana, una retrospectiva temporal contra lo que se hizo (intervalo del 90 % por semanas) y un reporte de una página.
+4. Cada lunes sube la semana nueva: sale la lista de unidades a taller y una alerta si la carga o la mezcla de alertas se mueve.
+
+En la flota simulada de ejemplo (140 tractocamiones, 26 semanas), la regla elegida con las primeras 17 semanas habría costado **476 mil pesos menos** que la práctica actual en las últimas 9 (intervalo del 90 %: 206 a 724 mil), con 9 fallas en ruta en lugar de 23. El archivo se procesa en el navegador y no sale de él. Protocolo de piloto y criterios de abandono: [`docs/MVP_PILOTO.md`](docs/MVP_PILOTO.md).
+
 ## Por qué el resultado es confiable
 
 - **Una sola mirada al test.** Está sellado en código (`load_holdout` falla salvo en la evaluación final) y un archivo de reserva impide una segunda evaluación. Las reglas de esa evaluación y el plan de análisis se publicaron **antes** de ejecutarla.

@@ -2,6 +2,12 @@
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and [Semantic Versioning](https://semver.org/).
 
+## [1.3.0] - 2026-10-17
+
+### Added
+- MVP «Calibrador de alertas por costo» (demo mode «Tus alertas»): Excel/CSV template and row-level validation in Spanish, cost-optimal rule by risk score or by alert type (empirical-Bayes shrinkage), workshop capacity, time-split retrospective against current practice with a weekly bootstrap interval, weekly list and drift monitor (binomial load band, chi-square on the alert mix), one-page report. Pilot protocol in `docs/MVP_PILOTO.md`.
+- «Señal de campo» theme and copyright footer in the demo.
+
 ## [1.2.0] - 2026-10-16
 
 ### Added

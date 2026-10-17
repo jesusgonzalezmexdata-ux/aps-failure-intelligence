@@ -21,6 +21,17 @@
 
 ![Cost vs threshold](reports/figures/cost_vs_threshold.png)
 
+## Use it with your fleet's alerts (MVP)
+
+Scania's 170 readings are internal to the manufacturer, so the product is the **method**: choose which alerts deserve a workshop check from their cost, and watch the workload every week. In the [live demo](https://huggingface.co/spaces/JesusRLGonzalez/aps-failure-intelligence), mode **«Tus alertas»** (Spanish):
+
+1. Download the template or upload your telematics export (`.xlsx` or `.csv`): unit, date, alert type, optional risk score, whether it was checked and whether a failure was confirmed (found in the shop or a breakdown on the road within 30 days).
+2. Enter the cost of a check, the extra cost of a road breakdown and, optionally, the weekly workshop capacity.
+3. Get the cost-optimal rule, the expected weekly band of checks, a time-split retrospective against what was actually done (90 % bootstrap interval by week) and a one-page report.
+4. Every Monday, upload the new week: you get the list of units to send to the shop and an alert if the load or the alert mix moves (chi-square decision, PSI size).
+
+On the simulated example fleet (140 tractors, 26 weeks), the rule chosen on the first 17 weeks would have cost **MXN 476 k less** than the current practice over the last 9 weeks (90 % interval 206–724 k), with 9 road breakdowns instead of 23. The file is processed in the visitor's browser and never leaves it. Pilot protocol and stop criteria: [`docs/MVP_PILOTO.md`](docs/MVP_PILOTO.md) (Spanish).
+
 ## Why this result can be trusted
 
 - **One look at the test set.** It is sealed in code (`load_holdout` raises `HoldoutSealed` unless called for the final evaluation) and a reservation file blocks a second evaluation. The rules for that evaluation and the analysis plan were committed **before** it ran.
