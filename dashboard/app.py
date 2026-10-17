@@ -94,7 +94,8 @@ with right:
                           for g in grid for name, df in (("training OOF", oof), ("holdout", hold))])
     chart = alt.Chart(curve).mark_line().encode(
         x=alt.X("threshold", scale=alt.Scale(type="log"), title="Score threshold (log)"),
-        y=alt.Y("cost_per_1000", title="Cost per 1,000 trucks"), color="sample")
-    rule = alt.Chart(pd.DataFrame(dict(threshold=[t]))).mark_rule(strokeDash=[4, 4]).encode(x="threshold")
+        y=alt.Y("cost_per_1000", title="Cost per 1,000 trucks"),
+        color=alt.Color("sample", scale=alt.Scale(domain=["training OOF", "holdout"], range=["#FFD21F", "#0E0F11"])))
+    rule = alt.Chart(pd.DataFrame(dict(threshold=[t]))).mark_rule(strokeDash=[4, 4], color="#D7261E").encode(x="threshold")
     st.altair_chart(chart + rule, use_container_width=True)
     st.caption("The holdout line is descriptive. Picking a threshold from it would leak the test set.")
